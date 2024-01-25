@@ -17,7 +17,7 @@ int main(void){
   cv::Mat image = cv::imread("image.png", 0);
   cv::Mat temp = cv::imread("template.png", 0);
 
-  display(image, "src");
+  //display(image, "src");
 
   int x_size = image.cols;
   int y_size = image.rows;
@@ -51,9 +51,20 @@ next_pixel:;
   // cv::line(image, cv::Point(i,j), cv::Point(i+t_x_size,j+t_y_size), 0, 2);
   // 末尾のパラメータ 0 は画素値（黒で線を描画する）、2 は線の太さ
 
+  for ( j=0 ; j<y_size ; j++ ){
+    for ( i=0 ; i<x_size ; i++ ){
+      if ( count.at<uchar>(j, i) == 255 ){
+        cv::line(image, cv::Point(i,j), cv::Point(i,j+t_y_size), 0, 2);
+        cv::line(image, cv::Point(i,j), cv::Point(i+t_x_size,j), 0, 2);
+        cv::line(image, cv::Point(i+t_x_size,j), cv::Point(i+t_x_size,j+t_y_size), 0, 2);
+        cv::line(image, cv::Point(i,j+t_y_size), cv::Point(i+t_x_size,j+t_y_size), 0, 2);
+      }
+    }
+  }
+
   display(image, "image");
 
   return 0;
 }
-//
+
 
