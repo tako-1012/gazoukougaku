@@ -54,7 +54,7 @@ next_pixel:;
   for ( j=0 ; j<y_size ; j++ ){
     for ( i=0 ; i<x_size ; i++ ){
       if ( count.at<uchar>(j, i) == 255 ){
-        cv::line(image, cv::Point(i,j), cv::Point(i,j+t_y_size), 0, 2);
+        cv::line(image, cv::Point(i,j), cv::Point(i,j+t_y_size), 0, 2);haru nino tako86
         cv::line(image, cv::Point(i,j), cv::Point(i+t_x_size,j), 0, 2);
         cv::line(image, cv::Point(i+t_x_size,j), cv::Point(i+t_x_size,j+t_y_size), 0, 2);
         cv::line(image, cv::Point(i,j+t_y_size), cv::Point(i+t_x_size,j+t_y_size), 0, 2);
